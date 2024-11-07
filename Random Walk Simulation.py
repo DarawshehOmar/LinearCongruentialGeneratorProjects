@@ -23,7 +23,6 @@ def simulate_random_walk(size, moves, seed, a, c, m):
 
     # Perform random walk
     for _ in range(moves):
-        # Count the current position
         counts[dot_position[1], dot_position[0]] += 1
 
         # Generate random values to determine movement
