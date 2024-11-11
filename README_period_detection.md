@@ -2,7 +2,7 @@
 
 This repository contains projects related to the **Linear Congruential Generator (LCG)** algorithm, starting with the LCG Period Detection project.
 
-## Project 1: LCG Period Detection
+## LCG Period Detection
 
 This project demonstrates the generation of pseudo-random numbers using the **Linear Congruential Generator (LCG)** algorithm and detects when the sequence starts repeating, known as **period detection**.
 
