@@ -20,16 +20,6 @@ Matplotlib
 
 
 
-Parameters
-
-size: Grid size (default is 15x15).
-
-moves: Number of moves in the random walk (default is 1,000,000).
-
-seed: Initial seed for the LCG.
-
-a, c, m: Parameters for the LCG formula to generate pseudo-random numbers.
-
 The output includes:
 
 A text-based count of visits for each coordinate with non-zero visits.
