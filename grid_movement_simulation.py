@@ -52,41 +52,48 @@ while True:
     stay_together = lcg() % 100 < 80  # 80% chance to move together to the same position
 
     if stay_together:
-        direction = random_direction()
-        if direction == 'u' and y1 > 0:
-            y1 -= 1
-            y2 -= 1
-        elif direction == 'd' and y1 < grid_size - 1:
-            y1 += 1
-            y2 += 1
-        elif direction == 'l' and x1 > 0:
-            x1 -= 1
-            x2 -= 1
-        elif direction == 'r' and x1 < grid_size - 1:
-            x1 += 1
-            x2 += 1
+        # Move both points together in the same direction
+        move = random_direction()
+        if move == 'u':
+            y1 = y2 = (y1 - 1) % grid_size
+        elif move == 'l':
+            x1 = x2 = (x1 - 1) % grid_size
+        elif move == 'd':
+            y1 = y2 = (y1 + 1) % grid_size
+        elif move == 'r':
+            x1 = x2 = (x1 + 1) % grid_size
     else:
-        # Move each point independently
-        for _ in range(2):  # Repeat for each point
-            direction = random_direction()
-            if direction == 'u' and y1 > 0:
-                y1 -= 1
-            elif direction == 'd' and y1 < grid_size - 1:
-                y1 += 1
-            elif direction == 'l' and x1 > 0:
-                x1 -= 1
-            elif direction == 'r' and x1 < grid_size - 1:
-                x1 += 1
+        # Move each point separately
+        move1 = random_direction()
+        move2 = random_direction()
 
-        for _ in range(2):  # Repeat for the second point
-            direction = random_direction()
-            if direction == 'u' and y2 > 0:
-                y2 -= 1
-            elif direction == 'd' and y2 < grid_size - 1:
-                y2 += 1
-            elif direction == 'l' and x2 > 0:
-                x2 -= 1
-            elif direction == 'r' and x2 < grid_size - 1:
-                x2 += 1
+        # Update Point 1 position
+        if move1 == 'u':
+            y1 = (y1 - 1) % grid_size
+        elif move1 == 'l':
+            x1 = (x1 - 1) % grid_size
+        elif move1 == 'd':
+            y1 = (y1 + 1) % grid_size
+        elif move1 == 'r':
+            x1 = (x1 + 1) % grid_size
 
+        # Update Point 2 position
+        if move2 == 'u':
+            y2 = (y2 - 1) % grid_size
+        elif move2 == 'l':
+            x2 = (x2 - 1) % grid_size
+        elif move2 == 'd':
+            y2 = (y2 + 1) % grid_size
+        elif move2 == 'r':
+            x2 = (x2 + 1) % grid_size
+
+    # Update the positions on the grid
     update_positions(x1, y1, x2, y2)
+
+    # User prompt to continue or quit
+    cont = input("Press Enter to move points, or 'q' to quit: ")
+    if cont.lower() == 'q':
+        print("Exiting the grid.")
+        break
+
+plt.close(fig)  # Close the plot when done
