@@ -1,23 +1,39 @@
-# LCG-Random-Carbonyl-on-Grid
+# Random Atom Position Generation Using LCG
 
-A Python script to simulate the random movement of Carbon (C) and Oxygen (O) atoms (carbonyl group) on a fixed 8x8 Copper (Cu) atom grid using a Linear Congruential Generator (LCG). The simulation generates an XYZ file that can be visualized with molecular modeling tools.
+This Python script generates random positions for `C` (Carbon) and `O` (Oxygen) atoms within an 8x8 grid using the Linear Congruential Generator (LCG). The positions are written to an XYZ file format, including a fixed grid of `Cu` (Copper) atoms.
+
+---
 
 ## Features
-- **Random Atom Positions:** Uses LCG for pseudorandom positioning of C and O atoms.
-- **Fixed Copper Grid:** Creates a static 8x8 grid of Cu atoms.
-- **XYZ File Format:** Outputs a molecular simulation file compatible with visualization tools.
-- **Simulation Frames:** Generates 100 frames of atomic positions.
 
-## File Structure
-- `simulation.py`: The main Python script for the simulation.
-- `carbonyl_100_moves_lcg.xyz`: The output file containing the simulation frames.
+- **Linear Congruential Generator (LCG)**:
+  - Generates pseudo-random numbers for atom positions.
+  - Parameters:
+    - `a = 1664525`: Multiplier
+    - `c = 1013904223`: Increment
+    - `m = 2^32`: Modulus
+    - `seed = 42`: Initial seed for repeatable results.
 
-## Output File Details
-The generated XYZ file contains:
+- **XYZ File Output**:
+  - Generates 100 frames with:
+    - 64 fixed positions for `Cu` atoms.
+    - 1 `C` atom with a fixed `z`-coordinate of `1`.
+    - 1 `O` atom with a `z`-coordinate randomly set to `1` or `2`.
 
-First Line: Total number of atoms (64 Cu + 2 moving atoms = 66).
+---
 
-Second Line: A description of the frame.
+## Prerequisites
 
-Remaining Lines: Atomic positions in the format Element x y z.
+Ensure the following dependencies are installed:
+- Python 3.x
 
+---
+
+## Usage
+
+1. Clone or download the script.
+2. Run the script:
+   ```bash
+   python script_name.py
+3. The script generates an XYZ file named carbonyl_100_moves_lcg.xyz containing:
+100 frames of atomic positions.
