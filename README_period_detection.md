@@ -1,16 +1,29 @@
-# Linear Congruential Generator Projects
+# Linear Congruential Generator (LCG) with Visualization
 
-This repository contains projects related to the **Linear Congruential Generator (LCG)** algorithm, starting with the LCG Period Detection project.
+This Python script implements a **Linear Congruential Generator (LCG)** to generate pseudo-random numbers based on user-provided parameters. The script includes input validation and visualizes the generated sequence using `matplotlib`.
 
-## LCG Period Detection
+---
 
-This project demonstrates the generation of pseudo-random numbers using the **Linear Congruential Generator (LCG)** algorithm and detects when the sequence starts repeating, known as **period detection**.
+## Features
 
-### Features:
-- Takes user inputs for the LCG parameters: 
-  - **Multiplier (a)**
-  - **Increment (c)**
-  - **Modulus (m)**
-  - **Initial seed (X0)**
-- Detects when the sequence of random numbers repeats (the **period**).
-- Plots the random numbers generated against the iteration count for visualization.
+- **Input Validation**: Ensures the parameters `a`, `c`, and `m` meet the requirements of the LCG algorithm.
+- **Period Detection**: Stops the sequence generation when repetition is detected, calculating the period.
+- **Visualization**: Plots the generated random numbers against iterations for analysis.
+- **Error Handling**: Handles invalid inputs gracefully and provides meaningful error messages.
+
+---
+
+## How It Works
+
+The Linear Congruential Generator generates random numbers using the formula:
+
+X(n+1) = (a * X(n) + c) % m
+
+Where:
+- `a`: Multiplier
+- `c`: Increment
+- `m`: Modulus
+- `X₀`: Initial seed value
+
+
+
