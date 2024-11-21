@@ -1,7 +1,4 @@
-#!/usr/bin/python3
-
 import matplotlib.pyplot as plt
-
 def generate_random_number(a, c, m, x0):
     return (a * x0 + c) % m
 
