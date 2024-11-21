@@ -1,26 +1,30 @@
-Description
+# Random Walk Simulation on a Grid with LCG
 
-This Python script simulates a random walk on a 15x15 grid using a Linear Congruential Generator (LCG) for generating pseudo-random directions. The random walk starts from the center of the grid, and the visit frequencies for each cell are tracked and visualized as a heatmap.
+This Python script simulates a random walk on a grid using the **Linear Congruential Generator (LCG)** for generating random directions. The walk is visualized through a heatmap that highlights the frequency of visits to each cell on the grid.
 
-Features
+---
 
-Linear Congruential Generator (LCG): Generates a sequence of pseudo-random numbers to guide the random walk.
+## Features
 
-Random Walk Simulation: Simulates a random walk on a 15x15 grid with configurable number of steps.
+- **Linear Congruential Generator (LCG)**:
+  - Generates pseudo-random numbers for determining whether to move and the direction of movement.
+  - Parameters:
+    - `a = 1664525`: Multiplier
+    - `c = 1013904223`: Increment
+    - `m = 2^31 - 1`: Modulus (prime number for better randomness).
+- **Grid-Based Random Walk**:
+  - Simulates a walk on a 15x15 grid by default.
+  - Wraps around edges, creating a toroidal grid.
+- **Visualization**:
+  - Generates a heatmap showing the frequency of visits to each cell on the grid.
 
-Heatmap Visualization: Displays a heatmap showing the frequency of visits to each cell.
+---
 
-Requirements
+## Prerequisites
 
-Python 3
+Ensure the following dependencies are installed:
+- Python 3.x
+- NumPy:
+  ```bash
+  pip install numpy
 
-NumPy
-
-Matplotlib
-
-
-
-The output includes:
-
-A text-based count of visits for each coordinate with non-zero visits.
-A heatmap showing the frequency of visits across the grid.
