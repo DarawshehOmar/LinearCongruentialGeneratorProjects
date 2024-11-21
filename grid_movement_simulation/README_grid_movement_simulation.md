@@ -1,21 +1,51 @@
-Grid Movement Simulation
+# Random Movement Simulation on a Grid
 
-This Python script simulates the movement of two points on an 8x8 grid using a Linear Congruential Generator (LCG) to generate pseudo-random directions. The points have an 80% chance of moving together to the same position, and they are visualized in real-time on the grid.
+This Python script simulates the movement of two points (`Point 1` and `Point 2`) on a grid using the Linear Congruential Generator (LCG) for random number generation. The two points can move independently or together with a configurable probability.
 
-Features
+---
 
-Random Point Movement: Each point has a chance to move in random directions (up, down, left, right) based on the LCG output.
+## Features
 
-Synchronized Movement: With an 80% probability, both points move to the same position; otherwise, they move independently.
+- **Random Direction Movement**: Uses an LCG to generate pseudo-random directions (`up`, `down`, `left`, `right`) for the points.
+- **Grid Visualization**: Displays a real-time grid with updated positions of the points.
+- **Movement Types**:
+  - Points move together 80% of the time.
+  - Points move independently 20% of the time.
+- **Interactive Controls**: Users can continue or exit the simulation by pressing `Enter` or typing `q`.
 
-Real-time Visualization: The points are updated dynamically on the grid using Matplotlib, with "Point 1" in blue and "Point 2" in red.
+---
 
-Code Explanation LCG (Linear Congruential Generator):
+## How It Works
 
-Generates random numbers using the LCG algorithm to determine the movement direction.
+### Random Movement
+- **Linear Congruential Generator (LCG)**:
+  - Formula: 
+    ```
+    X(n+1) = (a * X(n) + c) % m
+    ```
+  - Parameters:
+    - `a = 1664525` (Multiplier)
+    - `c = 1013904223` (Increment)
+    - `m = 2^32` (Modulus)
+    - `seed = 12345` (Initial Seed)
+- **Direction Choices**:
+  - `u`: Up
+  - `d`: Down
+  - `l`: Left
+  - `r`: Right
 
-Random Direction Function: Maps the LCG output to four possible directions ('up', 'down', 'left', 'right').
+### Visualization
+- The grid is displayed using Matplotlib, with:
+  - A **blue dot** representing `Point 1`.
+  - A **red dot** representing `Point 2`.
+- Grid size is 8x8 by default, but can be customized.
 
-Update Positions: Updates the positions of the points on the grid and redraws them.
+---
 
-Movement Loop: Continuously moves the points, with an 80% chance for synchronized movement.
+## Prerequisites
+
+Ensure the following dependencies are installed:
+- Python 3.x
+- Matplotlib: Install it via pip:
+  ```bash
+  pip install matplotlib
